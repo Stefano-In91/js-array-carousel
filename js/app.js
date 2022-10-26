@@ -9,10 +9,11 @@ const imgArr = [
    "img/04.jpg",
    "img/05.jpg"
 ]
+const imgArrLength = imgArr.length;
 // Individuo container immagini
 const imgDestination = document.querySelector(".items");
 // Creo immagini, setto la prima come attiva
-for (let i = 0; i < 5; i++){
+for (let i = 0; i < imgArrLength; i++){
    let createDiv = document.createElement("div");
    imgDestination.append(createDiv);
    createDiv.classList.add("item");
@@ -32,9 +33,19 @@ const activeItem = document.querySelectorAll(".item");
 // Event Listener su click
 nextBtn.addEventListener("click", function(){
    activeItem[activeNow].classList.remove("active");
-   activeItem[++activeNow].classList.add("active");
+   if (activeNow < imgArrLength - 1) {
+      activeItem[++activeNow].classList.add("active");
+   } else {
+      activeItem[0].classList.add("active");
+      activeNow = 0;
+   }   
 })
 prevBtn.addEventListener("click", function(){
    activeItem[activeNow].classList.remove("active");
-   activeItem[--activeNow].classList.add("active");
+   if (activeNow > 0){
+      activeItem[--activeNow].classList.add("active");
+   } else {
+      activeItem[4].classList.add("active");
+      activeNow = 4;
+   }
 })
