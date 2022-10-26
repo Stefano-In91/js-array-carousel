@@ -31,6 +31,7 @@
 }
 .previous i, .next i {
    background-color: rgba(189, 195, 199, 0.75);
+   transition: background-color .1s;
    border-radius: 50%;
    padding: 6px;
    margin: 6px 0;
@@ -38,10 +39,14 @@
    position: absolute;
    left: 50%;
    transform: translate(-50%);
+   cursor: pointer;
 }
 .previous i {
    top: 0;
 }
 .next i {
    bottom: 0;
+}
+.previous i:hover, .next i:hover {
+   background-color: rgba(189, 195, 199, 1);
 }

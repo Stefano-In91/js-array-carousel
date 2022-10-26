@@ -21,3 +21,20 @@ for (let i = 0; i < 5; i++){
       createDiv.classList.add("active");
    }
 }
+
+
+// Individuo pulsanti previous e next
+const nextBtn = document.querySelector(".next i");
+const prevBtn = document.querySelector(".previous i");
+// Imposto elemento attivo di base
+let activeNow = 0;
+const activeItem = document.querySelectorAll(".item");
+// Event Listener su click
+nextBtn.addEventListener("click", function(){
+   activeItem[activeNow].classList.remove("active");
+   activeItem[++activeNow].classList.add("active");
+})
+prevBtn.addEventListener("click", function(){
+   activeItem[activeNow].classList.remove("active");
+   activeItem[--activeNow].classList.add("active");
+})
