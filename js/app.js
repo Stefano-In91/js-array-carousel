@@ -21,14 +21,14 @@ for (let i = 0; i < imgArrLength; i++){
 }
 // // Oppure con template literal
 // for (let i = 0; i < imgArrLength; i++){
-//    let item = `<div class="item" style="background-image: url(../${imgArr[i]});"></div>`;
-//    imgDestination.innerHTML += item;
+//    let createItem = `<div class="item" style="background-image: url(../${imgArr[i]});"></div>`;
+//    imgDestination.innerHTML += createItem;
 // }
 
 // Imposto elemento attivo di base
-const activeItem = document.querySelectorAll(".item");
+const item = document.querySelectorAll(".item");
 let activeNow = 0;
-activeItem[activeNow].classList.add("active");
+item[activeNow].classList.add("active");
 
 // Individuo pulsanti previous e next
 const nextBtn = document.querySelector(".next i");
@@ -36,20 +36,20 @@ const prevBtn = document.querySelector(".previous i");
 
 // Event Listener su click
 nextBtn.addEventListener("click", function(){
-   activeItem[activeNow].classList.remove("active");
+   item[activeNow].classList.remove("active");
    if (activeNow < imgArrLength - 1) {
-      activeItem[++activeNow].classList.add("active");
+      item[++activeNow].classList.add("active");
    } else {
-      activeItem[0].classList.add("active");
+      item[0].classList.add("active");
       activeNow = 0;
    }   
 })
 prevBtn.addEventListener("click", function(){
-   activeItem[activeNow].classList.remove("active");
+   item[activeNow].classList.remove("active");
    if (activeNow > 0){
-      activeItem[--activeNow].classList.add("active");
+      item[--activeNow].classList.add("active");
    } else {
-      activeItem[4].classList.add("active");
+      item[4].classList.add("active");
       activeNow = 4;
    }
 })
