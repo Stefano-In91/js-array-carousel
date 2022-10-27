@@ -12,24 +12,28 @@ const imgArr = [
 const imgArrLength = imgArr.length;
 // Individuo container immagini
 const imgDestination = document.querySelector(".items");
-// Creo immagini, setto la prima come attiva
+// Creo immagini
 for (let i = 0; i < imgArrLength; i++){
    let createDiv = document.createElement("div");
    imgDestination.append(createDiv);
    createDiv.classList.add("item");
    createDiv.style.backgroundImage = `url(../${imgArr[i]}`
-   if (i==0) {
-      createDiv.classList.add("active");
-   }
 }
+// // Oppure con template literal
+// for (let i = 0; i < imgArrLength; i++){
+//    let item = `<div class="item" style="background-image: url(../${imgArr[i]});"></div>`;
+//    imgDestination.innerHTML += item;
+// }
 
+// Imposto elemento attivo di base
+const activeItem = document.querySelectorAll(".item");
+let activeNow = 0;
+activeItem[activeNow].classList.add("active");
 
 // Individuo pulsanti previous e next
 const nextBtn = document.querySelector(".next i");
 const prevBtn = document.querySelector(".previous i");
-// Imposto elemento attivo di base
-let activeNow = 0;
-const activeItem = document.querySelectorAll(".item");
+
 // Event Listener su click
 nextBtn.addEventListener("click", function(){
    activeItem[activeNow].classList.remove("active");
