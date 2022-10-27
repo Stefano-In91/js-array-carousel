@@ -1,7 +1,7 @@
 "use strict";
 
 /* <div class="item" style="background-image: url(../img/01.jpg);"></div> */
-// Array immagini
+// Array immagini + Length
 const imgArr = [
    "img/01.jpg",
    "img/02.jpg",
@@ -10,7 +10,7 @@ const imgArr = [
    "img/05.jpg"
 ]
 const imgArrLength = imgArr.length;
-// Individuo container immagini
+// Container immagini
 const imgDestination = document.querySelector(".items");
 // Creo immagini
 for (let i = 0; i < imgArrLength; i++){
@@ -19,37 +19,36 @@ for (let i = 0; i < imgArrLength; i++){
    createDiv.classList.add("item");
    createDiv.style.backgroundImage = `url(../${imgArr[i]}`
 }
-// // Oppure con template literal
+// // Con template literal
 // for (let i = 0; i < imgArrLength; i++){
 //    let createItem = `<div class="item" style="background-image: url(../${imgArr[i]});"></div>`;
 //    imgDestination.innerHTML += createItem;
 // }
 
-// Imposto elemento attivo di base
+// Elemento attivo di base
 const item = document.querySelectorAll(".item");
 let activeNow = 0;
 item[activeNow].classList.add("active");
 
-// Individuo pulsanti previous e next
+// Pulsanti previous e next
 const nextBtn = document.querySelector(".next i");
 const prevBtn = document.querySelector(".previous i");
-
 // Event Listener su click
 nextBtn.addEventListener("click", function(){
    item[activeNow].classList.remove("active");
    if (activeNow < imgArrLength - 1) {
-      item[++activeNow].classList.add("active");
+      activeNow++;
    } else {
-      item[0].classList.add("active");
       activeNow = 0;
-   }   
+   }  
+   item[activeNow].classList.add("active");
 })
 prevBtn.addEventListener("click", function(){
    item[activeNow].classList.remove("active");
    if (activeNow > 0){
-      item[--activeNow].classList.add("active");
+      activeNow--;
    } else {
-      item[4].classList.add("active");
       activeNow = 4;
    }
+   item[activeNow].classList.add("active");
 })
