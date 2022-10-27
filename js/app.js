@@ -48,7 +48,7 @@ prevBtn.addEventListener("click", function(){
    if (activeNow > 0){
       activeNow--;
    } else {
-      activeNow = 4;
+      activeNow = imgArrLength - 1;
    }
    item[activeNow].classList.add("active");
 })
